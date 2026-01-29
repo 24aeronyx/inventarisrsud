@@ -10,18 +10,18 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     @stack('styles')
 </head>
-<body class="bg-[#0A0A0A] text-[#FFFFFF] font-sans">
+<body class="text-gray-500 font-sans">
     <div class="flex h-screen overflow-hidden">
         <!-- Sidebar Mobile -->
-        <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+        <div id="sidebar-overlay" class="fixed inset-0 bg-slate-200 bg-opacity-50 z-40 hidden lg:hidden"></div>
         
         <!-- Sidebar -->
-        <div id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-black transform -translate-x-full transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0">
+        <div id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-slate-800 transform -translate-x-full transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0">
             <div class="flex flex-col h-full">
                 <!-- Logo/Brand -->
-                <div class="flex items-center px-6 py-4 border-b border-[#262626] gap-4">
-                    <img src="{{asset('/logo.png')}}" alt="logo" width="30" height="30"> 
-                    <h1 class="text-[#FFFFFF] font-semibold text-lg">Inventaris RSUD</h1>
+                <div class="flex items-center px-6 py-4 gap-2">
+                    <img src="{{asset('/logo.png')}}" alt="logo" width="40" height="40" class="bg-white rounded-full px-1"> 
+                    <h1 class="font-semibold text-lg text-white">Inventaris RSUD</h1>
                 </div>
 
                 <!-- Navigation Menu -->
@@ -29,7 +29,7 @@
                     <ul class="space-y-2">
                         <!-- Dashboard -->
                         <li>
-                            <a href="/dashboard" class="nav-item flex items-center px-4 py-3 text-[#A1A1A1] rounded-lg hover:bg-[#262626] hover:text-[#FFFFFF] transition-all duration-200">
+                            <a href="/dashboard" class="nav-item flex items-center px-4 py-3 rounded-lg transition-all duration-200">
                                 <iconify-icon icon="mdi:view-dashboard" class="mr-3"></iconify-icon>
                                 <span>Dashboard</span>
                             </a>
@@ -38,7 +38,7 @@
                         <!-- Staff Management -->
                         @if(auth()->user()->role === 'admin')
                         <li>
-                            <a href="/dashboard/staff" class="nav-item flex items-center px-4 py-3 text-[#A1A1A1] rounded-lg hover:bg-[#262626] hover:text-[#FFFFFF] transition-all duration-200">
+                            <a href="/dashboard/staff" class="nav-item flex items-center px-4 py-3 rounded-lg hover:bg-[#262626] hover:text-[#FFFFFF] transition-all duration-200">
                                 <iconify-icon icon="mdi:account-group" class="mr-3"></iconify-icon>
                                 <span>Manajemen Staff</span>
                             </a>
@@ -160,28 +160,28 @@
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 flex flex-col overflow-hidden lg:ml-0">
+        <div class="flex-1 flex flex-col overflow-hidden bg-slate-100 lg:ml-0">
             <!-- Top Header -->
-            <header class="px-4 py-4 lg:px-6">
+            <header class="px-4 py-2 lg:px-6 ">
                 <div class="flex items-center justify-between">
                     <!-- Mobile Menu Button & Title -->
                     <div class="flex items-center">
-                        <button id="mobile-menu-button" class="lg:hidden p-2 rounded-lg text-[#A1A1A1] hover:bg-[#262626] hover:text-[#FFFFFF] transition-all duration-200 mr-3 text-center">
+                        <button id="mobile-menu-button" class="lg:hidden p-2 rounded-lg text-gray-500 hover:bg-[#262626] hover:text-[#FFFFFF] transition-all duration-200 mr-3 text-center">
                             <iconify-icon icon="mdi:menu"></iconify-icon>
                         </button>
                         
                         <!-- Page Title -->
                         <div class="hidden sm:block">
-                            <h2 class="text-xl font-semibold text-[#FFFFFF]">@yield('page-title', 'Dashboard')</h2>
-                            <p class="text-sm text-[#A1A1A1] mt-1">@yield('page-subtitle', 'Selamat datang di sistem inventaris RSUD')</p>
+                            <h2 class="text-xl font-semibold text-gray-500">@yield('page-title', 'Dashboard')</h2>
+                            <p class="text-sm text-gray-500 mt-1">@yield('page-subtitle', 'Selamat datang di sistem inventaris RSUD')</p>
                         </div>
                     </div>
 
                     <!-- User Info -->
                     <div class="flex items-center space-x-3">
                         <div class="block text-right">
-                            <p class="text-sm font-medium text-[#FFFFFF]">{{ auth()->user()->name ?? 'None' }}</p>
-                            <p class="text-xs text-[#A1A1A1]">{{ auth()->user()->role === 'admin' ? 'Administrator' : 'Staff' }}</p>
+                            <p class="text-sm font-medium text-gray-500">{{ auth()->user()->name ?? 'None' }}</p>
+                            <p class="text-xs text-gray-500">{{ auth()->user()->role === 'admin' ? 'Administrator' : 'Staff' }}</p>
                         </div>
                         <div class="w-10 h-10 bg-[#262626] rounded-full flex items-center justify-center">
                             <iconify-icon icon="mdi:account" class="text-[#A1A1A1]"></iconify-icon>
@@ -191,13 +191,13 @@
                 
                 <!-- Mobile Page Title -->
                 <div class="sm:hidden mt-3">
-                    <h2 class="text-lg font-semibold text-[#FFFFFF]">@yield('page-title', 'Dashboard')</h2>
+                    <h2 class="text-lg font-semibold text-gray-500">@yield('page-title', 'Dashboard')</h2>
                     <p class="text-sm text-[#A1A1A1]">@yield('page-subtitle', 'Selamat datang di sistem inventaris RSUD')</p>
                 </div>
             </header>
 
             <!-- Main Content Area -->
-            <main class="flex-1 overflow-y-auto bg-[#0A0A0A] p-4 lg:p-6">
+            <main class="flex-1 overflow-y-auto bg-slate-100 p-4 lg:p-6">
                 @yield('content')
             </main>
         </div>

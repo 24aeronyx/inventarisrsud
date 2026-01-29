@@ -5,27 +5,27 @@
 @section('page-subtitle', 'Kelola Data Staff RSUD')
 
 @section('content')
-    <div class="bg-dark-bg-card rounded-lg shadow-md border-2 border-[#262626] p-6">
+    <div class="rounded-lg border bg-slate-200 border-slate-200 p-6">
         <div class="flex items-center mb-6">
             <div class="relative w-full flex justify-between items-center flex-col md:flex-row ">
                 <form action="{{ route('staff.index') }}" method="GET"
-                    class="lg:w-96 bg-[#262626] rounded-lg py-3 pl-3 pr-4 focus:outline-none focus:ring-2 focus:ring-white transition-colors duration-200 flex items-center">
-                    <iconify-icon icon="carbon:search" class="mr-3"></iconify-icon>
-                    <input type="text" name="query" value="{{ request('query') }}" placeholder="Cari staff..."
-                        class="outline-none bg-transparent text-white placeholder:text-dark-text-secondary">
+                    class="lg:w-96 bg-slate-100 rounded-lg py-3 pl-3 pr-4 focus:outline-none focus:ring-2 focus:ring-white transition-colors duration-200 flex items-center">
+                    <iconify-icon icon="carbon:search" class="mr-3 text-black text-xl"></iconify-icon>
+                    <input type="text" name="query" value="{{ request('query') }}" placeholder="Cari staff"
+                        class="outline-none bg-transparent text-gray-800 placeholder:text-gray-500">
                 </form>
                 <a href="{{ route('staff.create') }}"
-                    class="flex items-center bg-[#FFFFFF] text-[#0A0A0A] hover:bg-[#A1A1A1] focus:ring-[#FFFFFF] cursor-pointer rounded-lg py-3 px-4 transition-colors duration-200">
+                    class="flex items-center bg-slate-800 text-white hover:bg-slate-500 cursor-pointer rounded-lg py-3 px-4 transition-colors duration-200">
                     <iconify-icon icon="gg:user" width="20" height="20" class="mr-2"></iconify-icon>
                     <span class="font-bold">Tambah Staff</span>
                 </a>
             </div>
         </div>
 
-        <div class="bg-dark-bg-main rounded-lg overflow-x-auto">
+        <div class="bg-dark-bg-main rounded-lg overflow-x-auto bg-slate-800">
             <table class="min-w-full">
                 <thead>
-                    <tr class="text-left text-dark-text-secondary text-sm">
+                    <tr class="text-left text-white text-sm">
                         <th class="py-3 px-4 font-bold">No</th>
                         @foreach($columns as $col => $label)
                             <th class="py-3 px-4 font-bold">
@@ -46,17 +46,17 @@
                 </thead>
                 <tbody>
                     @forelse($staffs as $staff)
-                        <tr class="border-t border-[#262626] hover:bg-[#262626] transition-colors duration-200">
-                            <td class="py-3 px-4 font-medium text-[#A1A1A1]">{{ $loop->iteration + $staffs->firstItem() - 1  }}
+                        <tr class="border-t border-4 border-slate-800 bg-slate-200 transition-colors duration-200">
+                            <td class="py-3 px-4 font-medium text-slate-800]">{{ $loop->iteration + $staffs->firstItem() - 1  }}
                             </td>
-                            <td class="py-3 px-4 text-[#A1A1A1]">{{ $staff->role }}</td>
-                            <td class="py-3 px-4 font-medium text-[#A1A1A1]">{{ $staff->name }}</td>
-                            <td class="py-3 px-4 text-[#A1A1A1]">{{ $staff->username }}</td>
+                            <td class="py-3 px-4 font-medium text-slate-800">{{ $staff->role }}</td>
+                            <td class="py-3 px-4 font-medium text-slate-800">{{ $staff->name }}</td>
+                            <td class="py-3 px-4 font-medium text-slate-800">{{ $staff->username }}</td>
 
-                            <td class="py-3 px-4 space-x-8">
+                            <td class="py-3 px-4 flex justify-start items-center gap-4">
                                 <a href="{{route('staff.edit', $staff->id)}}">
                                     <iconify-icon width="20" height="20" icon="lucide:edit"
-                                        class="text-[#A1A1A1] hover:text-yellow-500 transition-colors duration-200"></iconify-icon>
+                                        class="text-slate-800 hover:text-yellow-400 transition-colors duration-200"></iconify-icon>
                                 </a>
                                 <form action="{{route('staff.destroy', $staff->id)}}" method="POST" class="inline">
                                     @csrf
@@ -64,14 +64,14 @@
                                     <button type="submit" class="cursor-pointer"
                                         onclick="return confirm('Yakin ingin menghapus data staff ini?')">
                                         <iconify-icon width="20" height="20" icon="lucide:trash"
-                                            class="text-[#A1A1A1] hover:text-red-500 transition-colors duration-200"></iconify-icon>
+                                            class="text-slate-800 hover:text-red-500 transition-colors duration-200"></iconify-icon>
                                     </button>
                                 </form>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="py-8 px-4 text-center text-dark-text-secondary">Tidak ada staff ditemukan.
+                            <td colspan="5" class="py-8 px-4 text-center text-white">Tidak ada staff ditemukan.
                             </td>
                         </tr>
                     @endforelse
