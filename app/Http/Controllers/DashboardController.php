@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cctv;
 use App\Models\Komputer;
+use App\Models\Printer;
 use App\Models\SwitchHub;
 use App\Models\Ups;
 use App\Models\User;
@@ -15,7 +16,7 @@ class DashboardController extends Controller
     {
         $tahun = request('tahun', now()->year);
         $countKomputer = Komputer::count();
-        $countPrinter = Ups::count();
+        $countPrinter = Printer::count();
         $countStaff = User::where('role', 'staff')->count();
         $countUps = Ups::count();
         $countSwitchhub = SwitchHub::count();

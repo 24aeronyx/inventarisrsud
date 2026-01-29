@@ -19,7 +19,7 @@
         <div id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-black transform -translate-x-full transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0">
             <div class="flex flex-col h-full">
                 <!-- Logo/Brand -->
-                <div class="flex justify-center items-center px-6 py-4 border-b border-[#262626] gap-4">
+                <div class="flex items-center px-6 py-4 border-b border-[#262626] gap-4">
                     <img src="{{asset('/logo.png')}}" alt="logo" width="30" height="30"> 
                     <h1 class="text-[#FFFFFF] font-semibold text-lg">Inventaris RSUD</h1>
                 </div>

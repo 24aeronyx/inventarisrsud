@@ -60,8 +60,9 @@
 					<td class="py-3 px-4 font-medium text-[#A1A1A1]">{{ $loop->iteration + $ups->firstItem() - 1 }}</td>
 					<td class="py-3 px-4 font-medium text-[#A1A1A1]">{{ $item->ruangan }}</td>
 					<td class="py-3 px-4 text-[#A1A1A1]">{{ $item->brand }}</td>
-					<td class="py-3 px-4 text-[#A1A1A1]">{{ $item->kegiatan }}</td>
 					<td class="py-3 px-4 text-[#A1A1A1]">{{ $item->tahun }}</td>
+					<td class="py-3 px-4 text-[#A1A1A1]">{{ $item->kegiatan }}</td>
+					
 					<td class="py-3 px-4 space-x-6">
 						<a href="{{ route('ups.show', $item->id) }}" title="Detail">
 							<iconify-icon width="20" height="20" icon="lucide:info" class="text-[#A1A1A1] hover:text-blue-500 transition-colors duration-200"></iconify-icon>
