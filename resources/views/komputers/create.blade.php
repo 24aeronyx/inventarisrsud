@@ -1,13 +1,13 @@
 @extends('layouts.dashboard')
 @section('content')
-<div class="p-8 rounded-lg shadow-lg border-2 border-[#262626]">
-    <h2 class="text-2xl font-bold text-[#FFFFFF] mb-6">Tambah Komputer</h2>
+<div class="p-8 rounded-lg bg-slate-200">
+    <h2 class="text-2xl font-bold text-slate-800 mb-6">Tambah Komputer</h2>
     <form action="{{ route('komputer.store') }}" method="POST" autocomplete="off">
         @csrf
         <div class="flex flex-col lg:flex-row gap-4 items-center">
             <div class="mb-4 w-full">
-                <label for="ruangan" class="block text-sm font-semibold mb-2 text-white">Ruangan</label>
-                <select name="ruangan" id="ruangan" class="w-full bg-[#262626] text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-white" required>
+                <label for="ruangan" class="block text-sm font-semibold mb-2 text-slate-800">Ruangan</label>
+                <select name="ruangan" id="ruangan" class="w-full bg-slate-800 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-white" required>
                     <option value="" disabled selected>Pilih Ruangan</option>
                     @foreach($ruangan as $kategori => $list)
                         <optgroup label="{{ $kategori }}">
@@ -21,8 +21,8 @@
             </div>
 
             <div class="mb-4 w-full">
-                <label for="unit" class="block text-sm font-semibold mb-2 text-white">Unit</label>
-                <select name="unit" id="unit" class="w-full bg-[#262626] text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-white" required>
+                <label for="unit" class="block text-sm font-semibold mb-2 text-slate-800">Unit</label>
+                <select name="unit" id="unit" class="w-full bg-slate-800 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-white" required>
                     <option value="" disabled selected>Pilih Unit</option>
                     <option value="PC Build Up" {{ old('unit') == 'PC Build Up' ? 'selected' : '' }}>PC Build Up</option>
                     <option value="All In One" {{ old('unit') == 'All In One' ? 'selected' : '' }}>All In One</option>
@@ -34,7 +34,7 @@
 
         <div class="flex flex-col lg:flex-row gap-4 items-center">
             <div class="mb-4 w-full">
-                    <label for="brand" class="block text-[#FFFFFF] text-sm font-medium mb-2">
+                    <label for="brand" class="block text-slate-800 text-sm font-medium mb-2">
                         Brand
                     </label>
                     <x-input 
@@ -47,7 +47,7 @@
                 
             </div>
             <div class="mb-4 w-full">
-                    <label for="tahun" class="block text-[#FFFFFF] text-sm font-medium mb-2">
+                    <label for="tahun" class="block text-slate-800 text-sm font-medium mb-2">
                         Tahun
                     </label>
                     <x-input 
@@ -65,7 +65,7 @@
 
         <div class="flex flex-col lg:flex-row gap-4 items-center">
             <div class="mb-4 w-full">
-                    <label for="os" class="block text-[#FFFFFF] text-sm font-medium mb-2">
+                    <label for="os" class="block text-slate-800 text-sm font-medium mb-2">
                         Sistem Operasi
                     </label>
                     <x-input 
@@ -78,7 +78,7 @@
                 
             </div>
             <div class="mb-4 w-full">
-                    <label for="processor" class="block text-[#FFFFFF] text-sm font-medium mb-2">
+                    <label for="processor" class="block text-slate-800 text-sm font-medium mb-2">
                         Processor
                     </label>
                     <x-input 
@@ -94,7 +94,7 @@
 
         <div class="flex flex-col lg:flex-row gap-4 items-center">
             <div class="mb-4 w-full">
-                    <label for="ram" class="block text-[#FFFFFF] text-sm font-medium mb-2">
+                    <label for="ram" class="block text-slate-800 text-sm font-medium mb-2">
                         RAM
                     </label>
                     <x-input 
@@ -108,8 +108,8 @@
             </div>
             <div class="w-full flex items-center gap-2">
                 <div class="mb-4 w-76">
-                    <label for="storage_type" class="block text-sm font-semibold mb-2 text-white">Tipe Storage</label>
-                    <select name="storage_type" id="storage_type" class="w-full bg-[#262626] text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-white">
+                    <label for="storage_type" class="block text-sm font-semibold mb-2 text-slate-800">Tipe Storage</label>
+                    <select name="storage_type" id="storage_type" class="w-full bg-slate-800 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-white">
                         <option value="" disabled selected>Pilih Tipe Storage</option>
                         <option value="SSD" {{ old('storage_type') == 'SSD' ? 'selected' : '' }}>SSD</option>
                         <option value="HDD" {{ old('storage_type') == 'HDD' ? 'selected' : '' }}>HDD</option>
@@ -117,7 +117,7 @@
                     
                 </div>
                 <div class="w-full mb-4">
-                        <label for="storage_capacity" class="block text-[#FFFFFF] text-sm font-medium mb-2">
+                        <label for="storage_capacity" class="block text-slate-800 text-sm font-medium mb-2">
                             Kapasitas Storage
                         </label>
                         <x-input 
@@ -134,7 +134,7 @@
 
         <div class="flex flex-col lg:flex-row gap-4 items-center">
             <div class="mb-4 w-full">
-                    <label for="kegiatan" class="block text-[#FFFFFF] text-sm font-medium mb-2">
+                    <label for="kegiatan" class="block text-slate-800 text-sm font-medium mb-2">
                         Kegiatan
                     </label>
                     <x-input 
@@ -147,7 +147,7 @@
                 
             </div>
             <div class="mb-4 w-full">
-                    <label for="ip_address" class="block text-[#FFFFFF] text-sm font-medium mb-2">
+                    <label for="ip_address" class="block text-slate-800 text-sm font-medium mb-2">
                         Ip Address
                     </label>
                     <x-input 
@@ -161,7 +161,7 @@
             </div>
         </div>
         <div class="flex justify-end">
-            <a href="{{ route('komputer.index') }}" class="text-white mr-3 border-2 border-[#262626] flex items-center py-2 px-4 rounded-lg hover:bg-[#262626]">Kembali</a>
+            <a href="{{ route('komputer.index') }}" class="text-white font-medium mr-3 bg-slate-400 flex items-center py-2 px-4 rounded-lg hover:bg-slate-800 duration-200">Kembali</a>
             <x-button type="submit" icon="ri:computer-line" iconPosition="left">
                 Tambah Komputer
             </x-button>

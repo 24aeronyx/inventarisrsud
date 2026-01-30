@@ -4,7 +4,7 @@
     $baseClasses = 'inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
     
     $variantClasses = [
-        'primary' => 'bg-[#FFFFFF] text-[#0A0A0A] hover:bg-gray-700 duration-200 focus:ring-[#FFFFFF] cursor-pointer',
+        'primary' => 'bg-slate-800 text-white duration-200 focus:ring-[#FFFFFF] cursor-pointer',
         'secondary' => 'bg-[#262626] text-[#FFFFFF] hover:bg-[#121212] focus:ring-[#A1A1A1] border border-[#A1A1A1]',
     ];
     

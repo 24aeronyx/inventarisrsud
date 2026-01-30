@@ -5,48 +5,48 @@
 @section('page-subtitle', 'Kelola Data Staff RSUD')
 
 @section('content')
-    <div class="rounded-lg border bg-slate-200 border-slate-200 p-6">
+    <div class="rounded-lg bg-slate-200 p-6">
         <div class="flex items-center mb-6">
             <div class="relative w-full flex justify-between items-center flex-col md:flex-row ">
                 <form action="{{ route('staff.index') }}" method="GET"
-                    class="lg:w-96 bg-slate-100 rounded-lg py-3 pl-3 pr-4 focus:outline-none focus:ring-2 focus:ring-white transition-colors duration-200 flex items-center">
-                    <iconify-icon icon="carbon:search" class="mr-3 text-black text-xl"></iconify-icon>
+                    class="lg:w-96 bg-slate-100 rounded-lg py-3 pl-3 pr-4 focus:outline-none focus:ring-2 focus:ring-white transition-colors duration-200 flex items-center text-slate-800">
+                    <iconify-icon icon="carbon:search" class="mr-3"></iconify-icon>
                     <input type="text" name="query" value="{{ request('query') }}" placeholder="Cari staff"
-                        class="outline-none bg-transparent text-gray-800 placeholder:text-gray-500">
+                        class="outline-none bg-transparent text-slate-800 placeholder:text-gray-500">
                 </form>
                 <a href="{{ route('staff.create') }}"
-                    class="flex items-center bg-slate-800 text-white hover:bg-slate-500 cursor-pointer rounded-lg py-3 px-4 transition-colors duration-200">
+                    class="flex items-center bg-slate-800 text-white cursor-pointer rounded-lg py-3 px-4 transition-colors duration-200">
                     <iconify-icon icon="gg:user" width="20" height="20" class="mr-2"></iconify-icon>
-                    <span class="font-bold">Tambah Staff</span>
+                    <span class="font-medium">Tambah Staff</span>
                 </a>
             </div>
         </div>
 
-        <div class="bg-dark-bg-main rounded-lg overflow-x-auto bg-slate-800">
-            <table class="min-w-full">
-                <thead>
+        <div class="bg-dark-bg-main rounded-lg overflow-x-auto bg-slate-800 border-2 border-slate-800">
+            <table class="min-w-full ">
+                <thead class="font-medium">
                     <tr class="text-left text-white text-sm">
-                        <th class="py-3 px-4 font-bold">No</th>
+                        <th class="py-3 px-4 font-medium">No</th>
                         @foreach($columns as $col => $label)
-                            <th class="py-3 px-4 font-bold">
+                            <th class="py-3 px-4 font-medium">
                                 <a href="{{ sortUrl($col, $sort ?? 'id', $direction ?? 'asc') }}"
-                                    class="flex items-center gap-1 group">
+                                    class="flex items-center gap-1 group font-medium">
                                     {{ $label }}
                                     <span class="flex flex-col ml-1">
-                                        <iconify-icon icon="mdi:arrow-up" width="14" height="14" @if(($sort ?? 'id') === $col && ($direction ?? 'asc') === 'asc') class="text-blue-500" @else
+                                        <iconify-icon icon="mdi:arrow-up" width="14" height="14" @if(($sort ?? 'id') === $col && ($direction ?? 'asc') === 'asc') class="text-white" @else
                                         class="text-[#A1A1A1] opacity-40 group-hover:opacity-80" @endif></iconify-icon>
-                                        <iconify-icon icon="mdi:arrow-down" width="14" height="14" @if(($sort ?? 'id') === $col && ($direction ?? 'asc') === 'desc') class="text-blue-500" @else
+                                        <iconify-icon icon="mdi:arrow-down" width="14" height="14" @if(($sort ?? 'id') === $col && ($direction ?? 'asc') === 'desc') class="text-white" @else
                                         class="text-[#A1A1A1] opacity-40 group-hover:opacity-80" @endif></iconify-icon>
                                     </span>
                                 </a>
                             </th>
                         @endforeach
-                        <th class="py-3 px-4 font-bold">Aksi</th>
+                        <th class="py-3 px-4 font-medium">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($staffs as $staff)
-                        <tr class="border-t border-4 border-slate-800 bg-slate-200 transition-colors duration-200">
+                        <tr class="bg-slate-200 transition-colors duration-200">
                             <td class="py-3 px-4 font-medium text-slate-800]">{{ $loop->iteration + $staffs->firstItem() - 1  }}
                             </td>
                             <td class="py-3 px-4 font-medium text-slate-800">{{ $staff->role }}</td>

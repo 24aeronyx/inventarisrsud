@@ -35,7 +35,7 @@
 
 			<div class="flex justify-end">
 				<a href="{{ route('staff.index') }}"
-					class="text-slate-800 bg-slate-400 font-medium mr-3 border-2 border-slate-400 flex items-center py-2 px-4 rounded-lg hover:bg-slate-800 hover:text-white duration-300 hover:border-slate-800">Kembali</a>
+					class="text-white bg-slate-400 font-medium mr-3 border-2 border-slate-400 flex items-center py-2 px-4 rounded-lg hover:bg-slate-800 hover:text-white duration-300 hover:border-slate-800">Kembali</a>
 				<x-button type="submit" icon="gg:user" iconPosition="left" class="bg-slate-800 text-white">
 					Simpan Perubahan
 				</x-button>

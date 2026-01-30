@@ -3,7 +3,7 @@
 <div class="relative">
     @if($icon)
         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <iconify-icon icon="{{ $icon }}" width="20" height="20" class="text-gray-500 focus:text-black"></iconify-icon>
+            <iconify-icon icon="{{ $icon }}" width="20" height="20" class="text-gray-500 "></iconify-icon>
         </div>
     @endif
     
@@ -12,7 +12,7 @@
         name="{{ $name }}"
         id="{{ $id ?? $name }}"
         placeholder="{{ $placeholder }}"
-        {{ $attributes->merge(['class' => 'w-full bg-gray-200 border rounded-lg px-4 py-3 text-black placeholder-gray-500 border border-gray-200 focus:border focus:ring-2 focus:ring-[#FFFFFF] focus:border-transparent transition-all duration-200' . ($icon ? ' pl-12' : '')]) }}
+        {{ $attributes->merge(['class' => 'w-full bg-slate-100 text-slate-800 rounded-lg px-4 py-3 placeholder-gray-500 focus:ring-slate-800 transition-all duration-200' . ($icon ? ' pl-12' : '')]) }}
     />
 </div>
 @error($name)

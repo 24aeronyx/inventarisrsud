@@ -5,6 +5,52 @@
 @section('page-subtitle', 'Ringkasan informasi inventaris')
 
 @section('content')
+    @php
+        $stats = [
+            [
+                'label' => 'Total Komputer',
+                'count' => $countKomputer,
+                'icon' => 'mdi:monitor',
+                'bg' => '#061848',
+                'url' => '/dashboard/komputer',
+            ],
+            [
+                'label' => 'Total Printer',
+                'count' => $countPrinter,
+                'icon' => 'mdi:printer',
+                'bg' => '#064806',
+                'url' => '/dashboard/printer',
+            ],
+            [
+                'label' => 'Total UPS',
+                'count' => $countUps,
+                'icon' => 'mdi:flash',
+                'bg' => '#063148',
+                'url' => '/dashboard/ups',
+            ],
+            [
+                'label' => 'Total Staff',
+                'count' => $countStaff,
+                'icon' => 'mdi:account-group',
+                'bg' => '#546B09',
+                'url' => '/dashboard/staff',
+            ],
+            [
+                'label' => 'Total Switch',
+                'count' => $countSwitchhub,
+                'icon' => 'mdi:switch',
+                'bg' => '#60096b',
+                'url' => '/dashboard/switch',
+            ],
+            [
+                'label' => 'Total CCTV',
+                'count' => $countCCTV,
+                'icon' => 'mdi:cctv',
+                'bg' => '#6b090b',
+                'url' => '/dashboard/cctv',
+            ],
+        ];
+    @endphp
     <div class="space-y-6 bg-slate-100">
         <!-- Welcome Card -->
         <div class="rounded-xl p-6 border border-slate-200 bg-slate-200">
@@ -17,87 +63,33 @@
             </div>
         </div>
 
-        <!-- Stats Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Total Komputer -->
-            <div
-                class="rounded-xl p-6 border border-slate-200 bg-slate-200 hover:border-[#A1A1A1] transition-colors duration-200">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-500 font-medium">Total Komputer</p>
-                        <p class="text-2xl font-bold text-gray-500 mt-1">{{ $countKomputer }}</p>
-                    </div>
-                    <div class="w-12 h-12 bg-[#061848] rounded-lg flex items-center justify-center">
-                        <iconify-icon icon="mdi:monitor" class=" text-white text-2xl"></iconify-icon>
-                    </div>
-                </div>
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            @foreach ($stats as $stat)
+                <a href="{{ $stat['url'] }}" class="group block rounded-xl p-6 border border-slate-200 bg-slate-200
+                          hover:bg-slate-300 hover:shadow-sm
+                          transition-all duration-200
+                          focus:outline-none focus:ring-2 focus:ring-slate-300">
 
-            <!-- Total Printer -->
-            <div
-                class="rounded-xl p-6 border border-slate-200 bg-slate-200 hover:border-[#A1A1A1] transition-colors duration-200">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-500 text-sm font-medium">Total Printer</p>
-                        <p class="text-2xl font-bold text-gray-500 mt-1">{{ $countPrinter }}</p>
-                    </div>
-                    <div class="w-12 h-12 bg-[#064806] rounded-lg flex items-center justify-center">
-                        <iconify-icon icon="mdi:printer" class=" text-white text-2xl"></iconify-icon>
-                    </div>
-                </div>
-            </div>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm font-medium
+                                      group-hover:text-slate-800 transition-colors">
+                                {{ $stat['label'] }}
+                            </p>
+                            <p class="text-2xl font-bold text-gray-500 mt-1
+                                      group-hover:text-slate-800 transition-colors">
+                                {{ $stat['count'] }}
+                            </p>
+                        </div>
 
-            <!-- Total UPS -->
-            <div
-                class="rounded-xl p-6 border border-slate-200 bg-slate-200 hover:border-[#A1A1A1] transition-colors duration-200">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-500 text-sm font-medium">Total UPS</p>
-                        <p class="text-2xl font-bold text-gray-500 mt-1">{{ $countUps }}</p>
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center"
+                            style="background-color: {{ $stat['bg'] }}">
+                            <iconify-icon icon="{{ $stat['icon'] }}" class="text-white text-2xl">
+                            </iconify-icon>
+                        </div>
                     </div>
-                    <div class="w-12 h-12 bg-[#063148] rounded-lg flex items-center justify-center">
-                        <iconify-icon icon="mdi:flash" class=" text-white text-2xl"></iconify-icon>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Total Staff -->
-            <div
-                class="rounded-xl p-6 border border-slate-200 bg-slate-200 hover:border-[#A1A1A1] transition-colors duration-200">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-500 text-sm font-medium">Total Staff</p>
-                        <p class="text-2xl font-bold text-gray-500 mt-1">{{ $countStaff }}</p>
-                    </div>
-                    <div class="w-12 h-12 bg-[#546B09] rounded-lg flex items-center justify-center">
-                        <iconify-icon icon="mdi:account-group" class=" text-white text-2xl"></iconify-icon>
-                    </div>
-                </div>
-            </div>
-            <div
-                class="rounded-xl p-6 border border-slate-200 bg-slate-200 hover:border-[#A1A1A1] transition-colors duration-200">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-500 text-sm font-medium">Total Switch</p>
-                        <p class="text-2xl font-bold text-gray-500 mt-1">{{ $countSwitchhub }}</p>
-                    </div>
-                    <div class="w-12 h-12 bg-[#60096b] rounded-lg flex items-center justify-center">
-                        <iconify-icon icon="mdi:switch" class=" text-white text-2xl"></iconify-icon>
-                    </div>
-                </div>
-            </div>
-            <div
-                class="rounded-xl p-6 border border-slate-200 bg-slate-200 hover:border-[#A1A1A1] transition-colors duration-200">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-500 text-sm font-medium">Total CCTV</p>
-                        <p class="text-2xl font-bold text-gray-500 mt-1">{{ $countCCTV }}</p>
-                    </div>
-                    <div class="w-12 h-12 bg-[#6b090b] rounded-lg flex items-center justify-center">
-                        <iconify-icon icon="mdi:cctv" class=" text-white text-2xl"></iconify-icon>
-                    </div>
-                </div>
-            </div>
+                </a>
+            @endforeach
         </div>
 
         <!-- Charts Aset -->
@@ -156,7 +148,7 @@
                 staff: {{ $countStaff }},
                 switchhub: {{ $countSwitchhub }},
                 cctv: {{ $countCCTV }}
-                        };
+                                            };
             // Bar Chart
             new Chart(document.getElementById('barChart'), {
                 type: 'bar',
