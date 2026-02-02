@@ -8,7 +8,7 @@
         <div class="flex flex-col lg:flex-row gap-4 items-center">
             <div class="mb-4 w-full">
                 <label for="ruangan" class="block text-sm font-semibold mb-2 text-slate-800">Ruangan</label>
-                <select name="ruangan" id="ruangan" class="w-full bg-slate-100 text-slate-800 rounded-lg py-3 px-4 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-slate-800" required>
+                <select name="ruangan" id="ruangan" class="w-full bg-slate-800 text-white rounded-lg py-3 px-4 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-slate-800" required>
                     <option value="" disabled>Pilih Ruangan</option>
                     @foreach($ruangan as $kategori => $list)
                         <optgroup label="{{ $kategori }}">
@@ -23,7 +23,7 @@
 
             <div class="mb-4 w-full">
                 <label for="unit" class="block text-sm font-semibold mb-2 text-slate-800">Unit</label>
-                <select name="unit" id="unit" class="w-full bg-slate-100 text-slate-800 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-slate-800" required>
+                <select name="unit" id="unit" class="w-full bg-slate-800 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-slate-800" required>
                     <option value="" disabled>Pilih Unit</option>
                     <option value="PC Build Up" {{ (old('unit', $komputer->unit) == 'PC Build Up') ? 'selected' : '' }}>PC Build Up</option>
                     <option value="All In One" {{ (old('unit', $komputer->unit) == 'All In One') ? 'selected' : '' }}>All In One</option>

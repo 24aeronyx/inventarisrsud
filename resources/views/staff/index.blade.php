@@ -12,7 +12,7 @@
                     class="lg:w-96 bg-slate-100 rounded-lg py-3 pl-3 pr-4 focus:outline-none focus:ring-2 focus:ring-white transition-colors duration-200 flex items-center text-slate-800">
                     <iconify-icon icon="carbon:search" class="mr-3"></iconify-icon>
                     <input type="text" name="query" value="{{ request('query') }}" placeholder="Cari staff"
-                        class="outline-none bg-transparent text-slate-800 placeholder:text-gray-500">
+                        class="outline-none bg-transparent text-slate-800 placeholder:text-slate-500">
                 </form>
                 <a href="{{ route('staff.create') }}"
                     class="flex items-center bg-slate-800 text-white cursor-pointer rounded-lg py-3 px-4 transition-colors duration-200">

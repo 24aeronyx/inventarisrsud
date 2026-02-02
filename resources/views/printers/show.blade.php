@@ -5,60 +5,97 @@
 @section('page-subtitle', 'Informasi Detail Printer RSUD')
 
 @section('content')
-<div class="p-8 bg-dark-bg-card rounded-xl shadow-xl overflow-hidden border border-[#262626]">
-    <div>
-        <h2 class="text-3xl font-extrabold text-white mb-6 border-b border-[#262626] pb-4 flex items-center gap-2">
-            <iconify-icon icon="ri:printer-line" width="28" height="28" class="text-blue-400"></iconify-icon>
-            <span>Spesifikasi Printer</span>
-        </h2>
+    <div class="p-8 flex flex-col gap-4 rounded-lg bg-slate-200">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
-            <div>
-                <div class="mb-4 flex items-center gap-2">
-                    <iconify-icon icon="mdi:office-building" class="text-[#A1A1A1]" width="18" height="18"></iconify-icon>
-                    <span class="text-dark-text-secondary text-sm">Ruangan</span>
-                    <span class="text-white text-lg font-medium ml-2">{{ $printer->ruangan }}</span>
-                </div>
-                <div class="mb-4 flex items-center gap-2">
-                    <iconify-icon icon="mdi:printer" class="text-[#A1A1A1]" width="18" height="18"></iconify-icon>
-                    <span class="text-dark-text-secondary text-sm">Brand</span>
-                    <span class="text-white text-lg font-medium ml-2">{{ $printer->brand }}</span>
-                </div>
-                <div class="mb-4 flex items-center gap-2">
-                    <iconify-icon icon="mdi:printer-outline" class="text-[#A1A1A1]" width="18" height="18"></iconify-icon>
-                    <span class="text-dark-text-secondary text-sm">Jenis</span>
-                    <span class="text-white text-lg font-medium ml-2">{{ $printer->jenis }}</span>
-                </div>
-            </div>
-
-            <div>
-                <div class="mb-4 flex items-center gap-2">
-                    <iconify-icon icon="mdi:calendar" class="text-[#A1A1A1]" width="18" height="18"></iconify-icon>
-                    <span class="text-dark-text-secondary text-sm">Tahun</span>
-                    <span class="text-white text-lg font-medium ml-2">{{ $printer->tahun }}</span>
-                </div>
-            </div>
+        {{-- HEADER --}}
+        <div class="text-3xl flex items-center gap-2">
+            <iconify-icon icon="ri:printer-line" width="30" height="30" class="text-slate-800"></iconify-icon>
+            <span class="text-slate-800">Spesifikasi Printer</span>
         </div>
 
-        <div class="mt-6 pt-6 border-t border-[#333]">
-            <div class="flex items-center gap-2 mb-2">
-                <iconify-icon icon="mdi:clipboard-text" class="text-[#A1A1A1]" width="18" height="18"></iconify-icon>
-                <span class="text-dark-text-secondary text-sm">Kegiatan / Penggunaan</span>
-            </div>
-            <p class="text-white text-lg font-medium">{{ $printer->kegiatan }}</p>
+        <hr class="h-0.5 bg-slate-800 border-0">
+
+        {{-- TABLE DETAIL --}}
+        <div class="overflow-x-auto">
+            <table class="w-full border-collapse">
+                <tbody class="text-sm">
+
+                    <tr class="border-b border-slate-300/40">
+                        <td class="w-1/4 text-slate-800 font-medium">
+                            <div class="flex items-center gap-2">
+                                <iconify-icon icon="mdi:office-building" width="18"></iconify-icon>
+                                Ruangan
+                            </div>
+                        </td>
+                        <td class="py-3 text-slate-800 font-bold">
+                            {{ $printer->ruangan }}
+                        </td>
+
+                        <td class="w-1/4 text-slate-800 font-medium">
+                            <div class="flex items-center gap-2">
+                                <iconify-icon icon="mdi:printer" width="18"></iconify-icon>
+                                Brand
+                            </div>
+                        </td>
+                        <td class="py-3 text-slate-800 font-bold">
+                            {{ $printer->brand }}
+                        </td>
+                    </tr>
+
+                    <tr class="border-b border-slate-300/40">
+                        <td class="py-3 text-slate-800 font-medium">
+                            <div class="flex items-center gap-2">
+                                <iconify-icon icon="mdi:printer-outline" width="18"></iconify-icon>
+                                Jenis
+                            </div>
+                        </td>
+                        <td class="py-3 text-slate-800 font-bold">
+                            {{ $printer->jenis }}
+                        </td>
+
+                        <td class="py-3 text-slate-800 font-medium">
+                            <div class="flex items-center gap-2">
+                                <iconify-icon icon="mdi:calendar" width="18"></iconify-icon>
+                                Tahun
+                            </div>
+                        </td>
+                        <td class="py-3 text-slate-800 font-bold">
+                            {{ $printer->tahun }}
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
         </div>
 
-    </div>
+        <hr class="h-0.5 bg-slate-800 border-0 shrink-0">
 
-    <div class="px-8 py-5 flex justify-between items-center rounded-b-xl border-t border-[#333] mt-8">
-        <p class="text-dark-text-secondary flex items-center gap-2">
-            <iconify-icon icon="mdi:clock-outline" width="16" height="16" class="mr-1"></iconify-icon>
-            Diperbarui pada: {{ $printer->updated_at->format('d M Y, H:i') }}
-        </p>
-        <a href="{{ route('printer.index') }}" class="text-white border border-[#333] flex items-center gap-2 py-2 px-4 rounded-lg hover:bg-[#262626] transition-colors mt-4">
-            <iconify-icon icon="mdi:arrow-left" width="18" height="18" class="mr-1"></iconify-icon>
-            Kembali
-        </a>
+        {{-- KEGIATAN / PENGGUNAAN --}}
+        <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-2 text-slate-800 font-medium">
+                <iconify-icon icon="mdi:clipboard-text" width="18"></iconify-icon>
+                Kegiatan / Penggunaan
+            </div>
+            <p class="text-slate-800 font-bold">
+                {{ $printer->kegiatan ?? '-' }}
+            </p>
+        </div>
+
+        <hr class="h-0.5 bg-slate-800 border-0">
+
+        {{-- FOOTER --}}
+        <div class="flex items-center justify-between">
+            <p class="text-slate-800 font-medium flex items-center gap-2">
+                <iconify-icon icon="mdi:clock-outline" width="16" height="16"></iconify-icon>
+                Diperbarui pada: {{ $printer->updated_at->format('d M Y, H:i') }}
+            </p>
+
+            <a href="{{ route('printer.index') }}"
+               class="text-white font-medium bg-slate-800
+                      flex items-center gap-2 py-2 px-4 rounded-lg
+                      hover:bg-slate-400 transition-colors">
+                Kembali
+            </a>
+        </div>
     </div>
-</div>
 @endsection

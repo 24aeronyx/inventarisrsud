@@ -20,7 +20,7 @@
 							class="flex items-center bg-slate-100 rounded-lg h-12  focus:outline-none focus:ring-2 focus:ring-white transition-colors duration-200">
 							<label for="unit" class="text-slate-800 text-center px-2 font-medium">Unit</label>
 							<select name="unit" id="unit"
-								class="bg-slate-800 h-12 text-white text-center rounded-r-lg font-medium">
+								class="bg-slate-800 h-12 text-white text-center rounded-r-lg font-medium cursor-pointer">
 								<option value="">Semua</option>
 								<option value="PC Build Up" {{ request('unit') == 'PC Build Up' ? 'selected' : '' }}>PC Build
 									Up</option>
